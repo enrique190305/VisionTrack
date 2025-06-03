@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>{% block title %}Vision Track{% endblock %}</title>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="{{ url_for('index') }}" class="logo">
+                <i class="far fa-eye"></i>
+                <span>Vision Track</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li>
+                        <a href="{{ url_for('index') }}">
+                            <i class="fas fa-home"></i> Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/api">
+                            <i class="fas fa-code"></i> API
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/facial">
+                            <i class="fas fa-camera"></i> Reconocimiento Facial
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Vision Track</h3>
+                    <p>Sistema de reconocimiento facial y consulta de identidad</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                        <li><a href="/api">API</a></li>
+                        <li><a href="/facial">Reconocimiento Facial</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Vision Track. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Reconocimiento Facial{% endblock %}
+
+{% block content %}
+<div class="facial-container">
+    <div class="facial-header">
+        <h2>Sistema de Reconocimiento Facial</h2>
+        <div class="status-container">
+            <div class="status-badge">
+                <i class="fas fa-circle-notch fa-spin"></i>
+                Estado: <span id="status">Cargando...</span>
+            </div>
+            <div class="status-info">
+                <i class="fas fa-info-circle"></i>
+                <span>Sistema activo y monitoreando</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="video-container">
+        <div class="video-wrapper">
+            <img src="{{ url_for('facial.video_feed') }}" alt="Video Stream">
+            <div class="video-overlay">
+                <div class="detection-frame"></div>
+            </div>
+        </div>
+        <div class="video-stats">
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <span>Personas detectadas: <span id="detected-count">0</span></span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-clock"></i>
+                <span>Tiempo activo: <span id="active-time">00:00:00</span></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button class="btn primary" onclick="refreshStatus()">
+            <i class="fas fa-sync-alt"></i>
+            Actualizar Estado
+        </button>
+        <button class="btn secondary" onclick="toggleFullscreen()">
+            <i class="fas fa-expand"></i>
+            Pantalla Completa
+        </button>
+    </div>
+</div>
+
+<script>
+function refreshStatus() {
+    const statusIcon = document.querySelector('.status-badge i');
+    statusIcon.classList.add('fa-spin');
+    
+    fetch('/facial/status')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('status').textContent = 
+                `${data.known_faces} rostros cargados`;
+            setTimeout(() => {
+                statusIcon.classList.remove('fa-spin');
+            }, 500);
+        })
+        .catch(error => {
+            document.getElementById('status').textContent = 'Error al cargar';
+            statusIcon.classList.remove('fa-spin');
+        });
+}
+
+function toggleFullscreen() {
+    const videoContainer = document.querySelector('.video-container');
+    if (!document.fullscreenElement) {
+        videoContainer.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+// Actualizar tiempo activo
+function updateActiveTime() {
+    const startTime = new Date();
+    setInterval(() => {
+        const now = new Date();
+        const diff = new Date(now - startTime);
+        const hours = diff.getUTCHours().toString().padStart(2, '0');
+        const minutes = diff.getUTCMinutes().toString().padStart(2, '0');
+        const seconds = diff.getUTCSeconds().toString().padStart(2, '0');
+        document.getElementById('active-time').textContent = 
+            `${hours}:${minutes}:${seconds}`;
+    }, 1000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    refreshStatus();
+    updateActiveTime();
+});
+</script>
+{% endblock %}

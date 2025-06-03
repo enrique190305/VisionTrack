@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Página de Inicio - Vision Track</title>
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}Inicio - Vision Track{% endblock %}
+
+    {% block content %}
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Vision Track</h1>
+            <p class="hero-description">Sistema inteligente de reconocimiento facial y verificación de identidad</p>
+            
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <span class="stat-number">1,000+</span>
+                    <span class="stat-label">Usuarios</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-camera"></i>
+                    <span class="stat-number">99%</span>
+                    <span class="stat-label">Precisión</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Seguro</span>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="/facial" class="btn primary">
+                    <i class="fas fa-camera"></i>
+                    Iniciar Reconocimiento
+                </a>
+                <a href="/api" class="btn secondary">
+                    <i class="fas fa-code"></i>
+                    Explorar API
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="features-section">
+        <h2>Características Principales</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-face-smile"></i>
+                </div>
+                <h3>Reconocimiento Facial</h3>
+                <p>Detección y verificación facial en tiempo real con alta precisión</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Integración RENIEC</h3>
+                <p>Acceso seguro a la base de datos de identificación nacional</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Seguridad Avanzada</h3>
+                <p>Protección de datos y verificación biométrica confiable</p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
