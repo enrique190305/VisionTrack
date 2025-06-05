@@ -1,12 +1,12 @@
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2c3e50;
-    --accent-color: #e74c3c;
-    --success-color: #2ecc71;
-    --warning-color: #f1c40f;
-    --bg-color: #f8fafc;
-    --text-color: #2c3e50;
-    --text-light: #64748b;
+    --primary-color: #60a5fa;      /* Azul más claro */
+    --secondary-color: #1e293b;    /* Azul oscuro */
+    --accent-color: #f87171;       /* Rojo más suave */
+    --success-color: #4ade80;      /* Verde más brillante */
+    --warning-color: #fbbf24;      /* Amarillo más brillante */
+    --bg-color: #0f172a;           /* Fondo muy oscuro */
+    --text-color: #e2e8f0;         /* Texto claro */
+    --text-light: #94a3b8;         /* Texto secundario */
     --border-radius: 12px;
     --transition: all 0.3s ease;
 }
@@ -27,7 +27,7 @@ body {
 
 /* Header moderno */
 .main-header {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(15, 23, 42, 0.95); /* Fondo oscuro con transparencia */
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: fixed;
@@ -98,7 +98,7 @@ body {
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--text-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: fadeInUp 0.8s ease-out;
@@ -113,7 +113,7 @@ body {
 }
 
 .stat-card {
-    background: white;
+    background: var(--secondary-color);
     padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
@@ -135,13 +135,13 @@ body {
     display: block;
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 /* Features */
 .features-section {
     padding: 4rem 2rem;
-    background: white;
+    background: var(--bg-color);
 }
 
 .features-section h2 {
@@ -161,7 +161,7 @@ body {
 .feature-card {
     padding: 2rem;
     border-radius: var(--border-radius);
-    background: white;
+    background: var(--secondary-color);
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     transition: var(--transition);
     text-align: center;
@@ -214,13 +214,12 @@ body {
 }
 
 .btn.secondary {
-    background: var(--bg-color);
+    background: var(--secondary-color);
     color: var(--text-color);
 }
 
 .btn.secondary:hover {
-    transform: translateY(-2px);
-    background: #e2e8f0;
+    background: #2d3748;
 }
 
 /* Animaciones */
@@ -363,12 +362,12 @@ body {
     }
 }
 
-/* Estilos para el contenedor facial */
+
 .facial-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: white;
+    max-width: 800px;
+    margin: 2.5rem auto;   
+    padding: 3rem;       
+    background: var(--secondary-color);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
@@ -382,7 +381,7 @@ body {
     font-size: 2.5rem;
     color: var(--secondary-color);
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--text-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -529,7 +528,7 @@ body {
     max-width: 800px;
     margin: 6rem auto 2rem;
     padding: 2rem;
-    background: white;
+    background: var(--secondary-color);
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
@@ -543,7 +542,7 @@ body {
     font-size: 2.5rem;
     color: var(--secondary-color);
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, var(--primary-color), var(--text-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -566,7 +565,7 @@ body {
 
 .endpoint-header h3 {
     font-size: 1.5rem;
-    color: var(--secondary-color);
+    color: var(--text-color);
     margin-bottom: 1rem;
 }
 

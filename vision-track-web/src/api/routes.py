@@ -1,7 +1,6 @@
 from flask import Blueprint, jsonify, render_template
 from .api_reniec import ApisNetPe
 
-# Eliminamos la definición del Blueprint aquí ya que está en __init__.py
 from . import api_bp
 
 API_TOKEN = "apis-token-15465.DvgXn4t4WlIwmrMADgodv1NhCjpNgGsZ"
